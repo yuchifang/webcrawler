@@ -1,7 +1,7 @@
-# 找尋 ig 上的美食
-# 在 ig 搜尋 新竹美食
-# 搜尋方式等於 ig ( 可以讓使用者輸入 )
-# 找尋 有沒有 新竹市 或是 新竹縣 的字
+# ��M ig �W������
+# �b ig �j�M �s�ˬ���
+# �j�M�覡���� ig ( �i�H���ϥΪ̿�J )
+# ��M ���S�� �s�˥� �άO �s�˿� ���r
 #
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,10 +22,10 @@ WebDriverWait(driver, 10).until(
 )
 
 files = driver.find_elements(by=By.CLASS_NAME, value="sc-8fe4d6a1-3")
-
-
+print("你好")
 for file in files:
     title = file.find_element(by=By.TAG_NAME, value="span")
+    print(title.text)
     link = driver.find_element(By.LINK_TEXT, title.text)
     link.click()
 
