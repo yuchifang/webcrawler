@@ -1,8 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-PATH = "chromedriver_win32/chromedriver.exe"
-driver = webdriver.Chrome(PATH)
+# PATH = "chromedriver_win32/chromedriver.exe"
+PATH = "edgedriver_win32/msedgedriver.exe"
+driver = webdriver.Edge(PATH)
 driver.get("https://tsj.tw/")
 
 blowButton = driver.find_element(By.ID, "click")
@@ -15,12 +16,12 @@ totalClickCount = driver.find_element(
     By.XPATH, '//*[@id="app"]/div[2]/div[4]/div[2]/h4[2]')
 print(totalClickCount.text)
 
-'''
-for i in range(100):
-    actions.click(blowButton)
-    actions.release(blowButton)
-actions.perform()
-'''
+
+# for i in range(100):
+#     actions.click(blowButton)
+#     actions.release(blowButton)
+# actions.perform()
+
 
 # 取得當前得點數
 # 價格會因為 點及次數不同而改變
