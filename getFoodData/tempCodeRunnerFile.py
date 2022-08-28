@@ -1,1 +1,2 @@
-getFoodData
+
+    'domain': '.instagram.com',
