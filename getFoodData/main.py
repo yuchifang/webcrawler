@@ -1,22 +1,33 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from utils import waitUntil
+import data
+service = ChromeService(
+    executable_path='D:\work\python\webcrawlerBasic\chromedriver_win32\chromedriver.exe')
+
+# todo 取得當前的路徑
+# todo 看看位什麼 cookie 無法使用
 
 
-PATH = "chromedriver_win32/chromedriver.exe"
+print(data.sessionidName)
+print(data.sessionidExpires)
+print(data.sessionidValue)
 
-driver = webdriver.Chrome(PATH)
+driver = webdriver.Chrome(service=service)
 driver.get("https://www.instagram.com/")
 driver.add_cookie({
-    'name': 'sessionid',
-    'value': '55076376813%3Ae90FlRQ8SmowCU%3A23%3AAYcsNaa3y4vrR5ZSGcXK3AqGOtmDtDiyAGmkYyOxdg',
+    'name': data.sessionidName,
+    'value': data.sessionidValue,
     'domain': '.instagram.com',
     'path': '/',
-    'expires': '2023-08-27T08:25:22.975Z',
+    'expires': data.sessionidExpires,
     'secure': True,
     'httpOnly': True
 })
 
+
+# driver.refresh()
 # 重新整理
 # 等待 如果有取到某個值 就繼續下去
 
@@ -27,4 +38,4 @@ driver.add_cookie({
 
 # 等入的 function
 # 是否進入登入畫面
-waitUntil(driver, 10, By.XPATH, '//*[@id="loginForm"]/div/div[3]')
+# waitUntil(driver, 10, By.XPATH, '//*[@id="loginForm"]/div/div[3]')
