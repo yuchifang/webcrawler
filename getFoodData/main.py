@@ -7,15 +7,12 @@ service = ChromeService(
     executable_path='D:\work\python\webcrawlerBasic\chromedriver_win32\chromedriver.exe')
 
 # todo 取得當前的路徑
-# todo 看看位什麼 cookie 無法使用
-
-
-print(data.sessionidName)
-print(data.sessionidExpires)
-print(data.sessionidValue)
 
 driver = webdriver.Chrome(service=service)
 driver.get("https://www.instagram.com/")
+# cookie 登入法 需要先在其他 瀏覽器 登入你的 IG 帳號 才可使用
+# 且關閉 webdriver 時 不能登出
+
 driver.add_cookie({
     'name': data.sessionidName,
     'value': data.sessionidValue,
