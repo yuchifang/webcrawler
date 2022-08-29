@@ -48,6 +48,8 @@ except NoSuchElementException:
     print("abv")
 
 # 重新整理
+# todo 感覺抓不到 lightbox html 
+
 # 等待 如果有取到某個值 就繼續下去
 
 # 沒有就用登入的方式
