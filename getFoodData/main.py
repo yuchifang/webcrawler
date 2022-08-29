@@ -1,4 +1,4 @@
-from re import search
+from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -37,13 +37,29 @@ driver.refresh()
 
 # searchElement = waitUntil(driver, 10, By.CLASS_NAME, '_a9-- _a9_1')
 
-try:
+try:   
+    # element = driver.find_element(By.CLASS_NAME,"_a9-- _a9_1").size()
     searchElement = waitUntil(driver, 10, By.CLASS_NAME, "_a9-- _a9_1")
 except TimeoutException:
     try:
-        searchElemen2 = waitUntil(driver, 10, By.CLASS_NAME, "_a9-- _a9_1")
-    except:
-        searchElemen3 = waitUntil(driver, 10, By.XPATH,'//*[@id="scrollview"]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]')
+        lightboxElement = driver.find_element(By.XPATH,'//*[@id="scrollview"]/following-sibling::div')
+        # lightboxElement = waitUntil(driver,10,By.XPATH,'//*[@id="scrollview"]')
+        print("-----------------------")
+        print(lightboxElement.tag_name)
+        print("-----------------------")
+        print(lightboxElement.text)
+        print("-----------------------")
+        print("-----------------------")
+        driver.switch_to.frame(lightboxElement)
+        testText=lightboxElement.find_element(By.XPATH,'//*[@id="scrollview"]/div/div/div/div[1]/div[1]/section/main/div[1]/section/div/div[2]/h4')
+        print(testText.text)
+        # driver.switch_to.window()
+        # todo 抓抓看 純 div
+        # //*[@id="mount_0_0_zF"]/div/div/div/div[2]
+    except NoSuchElementException:
+        print("some")
+    except TimeoutException:
+        print("TimeError")
 except NoSuchElementException:
     print("abv")
 
