@@ -52,18 +52,8 @@ searchElemnt = driver.find_element(By.XPATH,'/html/body/div[1]/div/div/div/div[1
 searchElemnt.click()
 searchInputElement = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]/input')
 searchInputElement.send_keys("新竹美食")
-print(searchInputElement.tag_name)
-sleep(1) # 改成 抓 List 的資料
+sleep(1)
 searchInputElement.send_keys(Keys.RETURN)
 searchInputElement.send_keys(Keys.ENTER)
 
-# 重新整理
-# todo 感覺抓不到 lightbox html
 
-# 等待 如果有取到某個值 就繼續下去
-
-# 沒有就用登入的方式
-
-# 等入的 function
-# 是否進入登入畫面
-# waitUntil(driver, 10, By.XPATH, '//*[@id="loginForm"]/div/div[3]')
