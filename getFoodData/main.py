@@ -1,3 +1,4 @@
+from os import waitid_result
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -43,8 +44,15 @@ driver.add_cookie({
 driver.refresh()
 
 try:
-    lightboxElement = waitUntil(driver,10,By.XPATH,'//*[@id="scrollview"]/following-sibling::div/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]') 
-    lightboxElement.click()
+    # 找到 lightbox 並點擊關閉按鈕
+    # lightboxElement = waitUntil(driver,10,By.XPATH,'//*[@id="scrollview"]/following-sibling::div/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]') 
+    # lightboxElement.click()
+    # 找到 lightbox 刪除
+    lightboxElement = waitUntil(driver,10,By.XPATH,'/html/body/div[1]/div/div/div')
+    driver.execute_script('''
+        lightboxElement=document.querySelector("#scrollview").nextElementSibling
+        lightboxElement.parentElement.removeChild(lightboxElement)
+    ''')
 except TimeoutException or NoSuchElementException:
     login(driver)
 
