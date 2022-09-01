@@ -1,9 +1,6 @@
 from pathlib import Path
 p = Path('.')
-[x for x in p.iterdir() if x.is_dir()]
-
-# print("iterdir", p.iterdir())
-
-# print("isDir",)
+print("p", p)
 for x in p.iterdir():
-    print("xxxx", x)
+    print("sss", x)
+"https://docs.python.org/3/library/pathlib.html"
