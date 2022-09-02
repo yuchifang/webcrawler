@@ -11,6 +11,8 @@ import requests
 from pathlib import Path
 Path("./images").mkdir(parents=True, exist_ok=True)
 
+# https://xkcd.com/614/info.0.json
+
 # 請開始你的練習
 
 
