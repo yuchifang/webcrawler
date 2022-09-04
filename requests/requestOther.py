@@ -1,8 +1,5 @@
 import requests
 from pathlib import Path
-# 疑問 Path 是做什麼的 mkdir?
-# with open ?
-# as ?
 
 
 Path("./images").mkdir(parents=True, exist_ok=True)
