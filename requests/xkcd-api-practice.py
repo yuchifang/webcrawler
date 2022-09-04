@@ -7,8 +7,6 @@ practice:
 有些編號其實會拿到 404 not found 請注意
 '''
 
-# todo 紀錄 range 用法 兩篇文章
-# todo index item
 
 import requests
 from pathlib import Path
@@ -44,9 +42,6 @@ for item in imageList:
         file.write(resImg.content)
 
 print(imageList)
-
-
-# 請開始你的練習
 
 
 '''
