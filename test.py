@@ -11,4 +11,8 @@ print(z)
 
 newZ = x.copy()
 newZ.update(y)
-print(newZ)
+
+obj = newZ.items()
+print(obj.__and__)
+# print(type(newZ))
+# print(type(obj))
