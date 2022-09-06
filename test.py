@@ -1,18 +1,13 @@
-# listExample = [1, 2, 3, 4, 5, 6, 7]
-# index = listExample.index(1)
-# print(index)
-
-x = {'a':1,'b':2}
-y = {'b':3,'d':4}
-
-z={**x,**y}
-print(z)
+# sampleList = [{"name1":"Dan"},{"name2":"Sam"},{"name3":"KID"}]
+# for x,y in sampleList:
+# 	print(x,y)
 
 
-newZ = x.copy()
-newZ.update(y)
-
-obj = newZ.items()
-print(obj.__and__)
-# print(type(newZ))
-# print(type(obj))
+thisdict = {
+	"brand": "Ford",
+	"year" : 2020,
+}
+print( thisdict.items())
+list = thisdict.items()
+for x,y in list:
+    print(x,y)
