@@ -1,13 +1,12 @@
-# sampleList = [{"name1":"Dan"},{"name2":"Sam"},{"name3":"KID"}]
-# for x,y in sampleList:
-# 	print(x,y)
+# def gcd(m, n):
+print(45 % 10)
+print(10 % 5)
+'''
+45,10
+252,105
 
 
-thisdict = {
-	"brand": "Ford",
-	"year" : 2020,
-}
-print( thisdict.items())
-list = thisdict.items()
-for x,y in list:
-    print(x,y)
+21 * 12 
+,
+21 * 5
+'''
