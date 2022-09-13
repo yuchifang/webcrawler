@@ -31,8 +31,8 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 
 看看放到 [] 裡的差別
 
-+ one or moretimes
-* zero or moretimes
++ one or moretimes = ca+t => match caaat cat, no match ct
+* zero or moretimes = 
 '''
 
 # 看看 backslash 怎麼唸
