@@ -30,6 +30,9 @@ Matches any alphanumeric character; this is equivalent to the class [a-zA-Z0-9_]
 Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z0-9_].
 
 看看放到 [] 裡的差別
+
++ one or moretimes
+* zero or moretimes
 '''
 
 # 看看 backslash 怎麼唸
