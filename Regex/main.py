@@ -1,9 +1,5 @@
 import re
 
-p = re.compile('[a-z]+')
-
-result=p.match("8")
-print(result)
 
 # todo 從 Matching Characters 開使看
 '''
@@ -33,6 +29,25 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 
 + one or moretimes = ca+t => match caaat cat, no match ct
 * zero or moretimes = 
+? matches once or zero times = home-?brew => match homebrew home-brew
+{m,n} matches m n times = a/{1,3}b => 'a/b','a//b','a///b', not match ab or a////b
+m,n這兩個參數都可以忽略
+{0,} 等於 *, {1,} 等於 +, {0,1} 等於 ?, 最好還是使用 *,+,?
+
+Method
+match() Determine if the RE matches at the beginning of the string
+search() Scan through a string, looking for any location where this RE matches.
+findall() Find all substrings where the RE matches, and returns them as a list.
+finditer() Find all substrings where the RE matches, and returns them as an iterator.
+
+match() and search() return None if no match can be found. 
+If they’re successful, a match object instance is returned, 
+containing information about the match: where it starts and ends,
+the substring it matched, and more.
+
+redemo.py can be quite useful when trying to debug a complicated RE.
+redemo.py??
+
 '''
 
 # 看看 backslash 怎麼唸
@@ -42,9 +57,15 @@ Matches any non-alphanumeric character; this is equivalent to the class [^a-zA-Z
 # 字串模式 "He"
 # 對像字串 "Hello World"
 
-result = re.match("He","Hello World")
+result = re.match("He","Hello World") # test
 # result 沒找到 return NONE
 
 # 如果有找到 result.group() 會顯示 找到的字串
-if  result :
-    print(result.group())
+print(result)
+
+# 其中一種 比對方式
+p = re.compile('[a-z]+')
+
+p = re.compile(r'\d+')
+data = p.findall('a12d drummers cs5drumming, 11 pipers piping, 10 lords a-leaping')
+print(data)
