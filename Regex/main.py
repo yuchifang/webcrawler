@@ -73,3 +73,5 @@ for item in r:
     print(type(item))
 
     # 看到 Module-Level Functions
+pp = re.compile('(ab)*')
+print(pp.match('ababababab'))
