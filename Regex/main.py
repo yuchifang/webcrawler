@@ -67,5 +67,9 @@ print(result)
 p = re.compile('[a-z]+')
 
 p = re.compile(r'\d+')
-data = p.findall('a12d drummers cs5drumming, 11 pipers piping, 10 lords a-leaping')
-print(data)
+r = p.finditer('a12d drummers cs5drumming, 11 pipers piping, 10 lords a-leaping')
+print(type(r))
+for item in r:
+    print(type(item))
+
+    # 看到 Module-Level Functions
