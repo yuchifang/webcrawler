@@ -61,17 +61,19 @@ result = re.match("He","Hello World") # test
 # result 沒找到 return NONE
 
 # 如果有找到 result.group() 會顯示 找到的字串
-print(result)
+# print(result)
 
 # 其中一種 比對方式
 p = re.compile('[a-z]+')
 
 p = re.compile(r'\d+')
 r = p.finditer('a12d drummers cs5drumming, 11 pipers piping, 10 lords a-leaping')
-print(type(r))
+# print(type(r))
 for item in r:
-    print(type(item))
+    # print(type(item))
 
     # 看到 Module-Level Functions
-pp = re.compile('(ab)*')
-print(pp.match('ababababab'))
+# pp = re.compile('(ab)*')
+# print(pp.match('ababababab'))
+# print("Hello ccClub")
+
