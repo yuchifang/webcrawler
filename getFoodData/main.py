@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
-
+from selenium.webdriver.common.action_chains import ActionChains
 from utils import waitUntil
 from login import login
 
@@ -42,6 +42,7 @@ driver.add_cookie({
 
 driver.refresh()
 
+# 關閉 lightbox
 try:
     # 找到 lightbox 並點擊關閉按鈕
     # 使用 XPATH
@@ -58,9 +59,66 @@ try:
 except TimeoutException or NoSuchElementException:
     login(driver)
 
+# 點擊 searchButton
+searchButton = driver.find_element(
+    By.XPATH, '//*[@id="scrollview"]/div/div/div/div[1]/div[1]/div[1]/div/div/div/div[2]/div[2]/div')
+searchButton.click()
+waitUntil(driver, 10, By.CLASS_NAME, '_aagu')
+
+# search
+searchElement = driver.find_element(
+    By.XPATH, '/html/body/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/div[1]'
+)
+searchElement.click()
+
+searchInputElement = driver.find_element(
+    By.XPATH, '/html/body/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/div[2]/section/main/div/div[1]/input')
+searchInputElement.send_keys("新竹美食")
+
+sleep(2)
+searchInputElement.send_keys(Keys.RETURN)
+searchInputElement.send_keys(Keys.ENTER)
+
+# 搜尋完成
+# 找尋熱門貼文 class
+print("start")
+waitUntil(driver, 15, By.CLASS_NAME, '_aaq9')
+
+# 不知為什麼一定要 refresh 過後才點的到 貼文
+driver.refresh()
+# 找尋貼文 class
+foodPostItem = waitUntil(
+    driver, 10, By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div[1]/div[2]')
+actions = ActionChains(driver)
+
+actions.click_and_hold(foodPostItem)
+sleep(0.5)
+actions.release(foodPostItem)
+actions.perform()
+'''
+
+'''
+
+'''
+    抓之前 判斷 貼文是否存在
+    抓一個 刪一個
+    抓三個 移動一次
+
+    取得當前資料的總數 dataAll1
+    滾到底
+    取得當前資料的總數 dataAll2
+    相減 計算多了幾個處理多出來的資料
+'''
+
+'''
+    取得當前資料
+    往下捲
+    依據 request 取值
+'''
+# todo selenium get HTML dom for bs4 get
+
 # searchElement = driver.find_element(
 #     By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]')
-# searchElement.click()
 # searchInputElement = driver.find_element(
 #     By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]/input')
 # searchInputElement.send_keys("新竹美食")
