@@ -27,9 +27,8 @@ service = ChromeService(executable_path=path)
 
 driver = webdriver.Chrome(service=service)
 driver.get("https://www.instagram.com/")
-# cookie 登入法 需要先在其他 瀏覽器 登入你的 IG 帳號 才可使用
-# 且關閉 webdriver 時 不能登出
 
+# 使用 cookie 登入 需要先在其他 瀏覽器 登入你的 IG 帳號 才可使用 且必須保持登入狀態
 driver.add_cookie({
     'name': data.sessionidName,
     'value': data.sessionidValue,
@@ -45,9 +44,11 @@ driver.refresh()
 
 try:
     # 找到 lightbox 並點擊關閉按鈕
+    # 使用 XPATH
     # lightboxElement = waitUntil(driver,10,By.XPATH,'//*[@id="scrollview"]/following-sibling::div/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]')
     # lightboxElement.click()
     # 找到 lightbox 刪除
+    # 使用 execute_script
     lightboxElement = waitUntil(
         driver, 10, By.XPATH, '/html/body/div[1]/div/div/div')
     driver.execute_script('''
@@ -57,12 +58,12 @@ try:
 except TimeoutException or NoSuchElementException:
     login(driver)
 
-searchElemnt = driver.find_element(
-    By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]')
-searchElemnt.click()
-searchInputElement = driver.find_element(
-    By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]/input')
-searchInputElement.send_keys("新竹美食")
-sleep(1)
-searchInputElement.send_keys(Keys.RETURN)
-searchInputElement.send_keys(Keys.ENTER)
+# searchElement = driver.find_element(
+#     By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]')
+# searchElement.click()
+# searchInputElement = driver.find_element(
+#     By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/section/nav/div[2]/div/div/div[2]/input')
+# searchInputElement.send_keys("新竹美食")
+# sleep(1)
+# searchInputElement.send_keys(Keys.RETURN)
+# searchInputElement.send_keys(Keys.ENTER)
