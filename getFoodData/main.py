@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from utils import waitUntil
 from login import login
-
+from bs4 import BeautifulSoup
 import data
 import pathlib
 import platform
@@ -88,15 +88,28 @@ waitUntil(driver, 15, By.CLASS_NAME, '_aaq9')
 driver.refresh()
 # 找尋貼文 class
 foodPostItem = waitUntil(
-    driver, 10, By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div[1]/div[2]')
-actions = ActionChains(driver)
+    driver, 15, By.XPATH, '/html/body/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div[1]/div[2]')
 
-actions.click_and_hold(foodPostItem)
-sleep(0.5)
-actions.release(foodPostItem)
-actions.perform()
+foodPostItem.click()
+
+postLightbox = waitUntil(
+    driver, 10, By.CSS_SELECTOR, 'div.o9w3sbdw.bdao358l.alzwoclg.cqf1kptm.cgu29s5g.jcxyg2ei'
+)
+postLightboxHTML = postLightbox.get_attribute('innerHTML')
+soup = BeautifulSoup(postLightboxHTML)
+soup.find()
+print()
+
+# soup = BeautifulSoup(driver.page_source)
+# print(soup)
+# actions = ActionChains(driver)
+
+# actions.click_and_hold(foodPostItem)
+# sleep(0.5)
+# actions.release(foodPostItem)
+# actions.perform()
 '''
-
+https://i.instagram.com/api/v1/media/2923973691486745905/comments/?can_support_threading=true&permalink_enabled=false
 '''
 
 '''
