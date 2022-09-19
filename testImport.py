@@ -1,6 +1,7 @@
 def test():
     print("test")
 
+print("ABC")
 
 # print("testImport")
 if __name__ == '__main__':
