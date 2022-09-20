@@ -1,4 +1,4 @@
-
+import moduleY
 print("moduleX.py")
 
 # https://medium.com/pyladies-taiwan/python-%E7%9A%84-import-%E9%99%B7%E9%98%B1-3538e74f57e3
