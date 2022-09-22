@@ -34,5 +34,6 @@ print(sys.path)
 # 可以成功
 
 
-from moduleA import sample
+# from moduleA import sample
 # 這種方法可以 是因為把
+from importSample.subpackage1.moduleY import sample
