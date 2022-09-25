@@ -29,20 +29,32 @@ https://judge.ccclub.io/contest/112/problem/22Fall08
 想請問一下 有什麼解法嗎
 '''
 data = [int(item) for item in input().split(" ")]
-
+# n=0
+# for i in range(2,len(data)):     
+#     for j in range(i-1):
+#         for k in range(j+1,i):
+#             if(data[i] ==data[k]+data[j]):
+#                 n+=1
+# print(n)
 
 def isValid(dataList):
+
     totalCount = 0
     for currentNumber in dataList:
         cache = {}
         for index in range(0, dataList.index(currentNumber)+1):
             dataItem = dataList[index]
+            # 將值 以key記錄在 cache 中 
+            # 出現一次 加1
             if dataItem in cache:
                 cache[dataItem] = cache[dataItem]+1
             else:
                 cache[dataItem] = 1
-
+            # 如果 currentNumber - dataItem 的值 在cache中
+            # 找有沒有對應的key
             if currentNumber - dataItem in cache:
+                # 有的話 判斷 相減的值 會不會剛好等於 出現過的值
+                # 處理 1 2 4 8 的情況 如果是則跳過
                 if dataItem == currentNumber - dataItem and cache[dataItem] == 1:
                     continue
                 totalCount += 1
