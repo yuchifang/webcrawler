@@ -1,46 +1,54 @@
-# 0 <= i < j < k <= len(nums) - 1
-# 陣列常長度 大於 .
-# nums[i] + nums[j] == nums[k]
-# 任前兩項 相加 等於 某一項
-# 計算幾組符合條件
+'''
+想請問一下這一題
+[8-綜合] 數列三胞胎
+https://judge.ccclub.io/contest/112/problem/22Fall08
 
-# 1 2 3 6 = 1
-# 1 3 4 8 2 6 = 2
+對題目的理解是
+如果數列中 前兩項的和 等於 後面某一項 
+則算成功一次
+1 2 3 6
+1+2=3 總數+1
+共1組
 
+1 3 4 8 2 6
+1+3=4 總數+1
+4+2=6 總數+1
+共2組
 
+1 3 4 8 2 6 10
+1+3=4 總數+1
+4+2=6 總數+1
+8+2=10 總數+1
+4+6=10 總數+1
+共4組
+
+0 4 4
+0+4=4 總數+1
+共1組
+
+想請問一下 有什麼解法嗎
+'''
 data = [int(item) for item in input().split(" ")]
-cache = {}
 
 
-def isVaild(data):
-	count = 0
-	for item in data:
-		if data.index(item)<2:
-			continue
-		cache ={}
-		for index in range(0,data.index(item)):
-			dataListItem = data[index]
-			if dataListItem in cache:
-				cache[dataListItem]	= cache[dataListItem]+1 
-			else:
-				cache[dataListItem]	= 1
+def isValid(dataList):
+    totalCount = 0
+    for currentNumber in dataList:
+        cache = {}
+        for index in range(0, dataList.index(currentNumber)+1):
+            dataItem = dataList[index]
+            if dataItem in cache:
+                cache[dataItem] = cache[dataItem]+1
+            else:
+                cache[dataItem] = 1
 
-			if index <1:
-				continue
-			if item - dataListItem in cache :
-				if dataListItem == item - dataListItem and cache[dataListItem] ==1 :
-					continue
-				count+=1
-				
-				break
-		
-		
-	print(count)
+            if currentNumber - dataItem in cache:
+                if dataItem == currentNumber - dataItem and cache[dataItem] == 1:
+                    continue
+                totalCount += 1
 
-isVaild(data)
-# 1 1 2 4 8
-# 1
-# 1 3 4 8 2 6
-# 2
-# 1 2 3 6
-# 1
+
+    print(totalCount)
+
+
+isValid(data)
