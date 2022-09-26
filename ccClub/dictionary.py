@@ -18,6 +18,12 @@ end
 dataList = []
 data = input()
 while  "end" != data :
-    dataList.append(data.split(","))
+    dataList.append([data.split(",")[0],int(data.split(",")[1])])
     data = input()
-print(dataList)
+
+dataList.sort(key=lambda item:item[1])
+try:
+    for index in range(3):
+        print(f'{dataList[index][0]} {dataList[index][1]}')
+except IndexError:
+    None
