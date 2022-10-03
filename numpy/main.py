@@ -26,3 +26,6 @@
 # nums = [20,22,21,19,5,18,20,22,17,19,23,23,22,17,19,20,19,22,18,23]
 # data = np.percentile(nums,75)
 # print("data",data)
+import numpy as np
+arr = [20,22,21,19,5,18,20,22,17,19,23,23,22,17,19,20,19,22,18,23]
+print(np.median(arr))
