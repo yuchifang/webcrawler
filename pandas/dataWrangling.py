@@ -32,9 +32,10 @@ listOne = range(3)
 listTwo = ["A","B","C"]
 df1 = pd.DataFrame({"data2":listOne,"name":listTwo})
 # print(df1)
-listT = range(5)
+listT = range(5,0,-1)
 listF = ["A","B","C","D","C"]
 df2 = pd.DataFrame({"data1":listT,"name":listF})
 # print(df2)
-df3 = pd.merge(df1,df2,left_on="data2",right_index=True)
+df3 = pd.merge(df1,df2,right_on="data1",left_index=True)
+# df3 = pd.merge(df1,df2,left_on="data2",right_index=True)
 print(df3)
