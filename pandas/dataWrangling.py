@@ -25,5 +25,6 @@ age_df = pd.DataFrame(age_dict)
 age_job_merged = pd.merge(job_df, age_df)
 print(age_job_merged)
 print("---------------------")
-data = job_df.merge(age_df)
+data = pd.merge(job_df, age_df,left_on="occupation",right_index=True)
 print(data)
+
