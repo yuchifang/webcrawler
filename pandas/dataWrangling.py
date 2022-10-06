@@ -74,7 +74,18 @@
 # print(df4)
 # 分箱
 import pandas as pd
-data1 = [1,2,3,10,12,15]
-name = ["A","B","C","D","E","F"]
-df1 = pd.DataFrame({"name":name,"data1":data1})
-print(df1)
+import numpy as np
+# data1 = [1,2,3,10,12,15]
+# name = ["A","B","C","D","E","F"]
+# df1 = pd.DataFrame({"name":name,"data1":data1})
+# # print(df1)
+# df1['data1'] = pd.cut(x=df1['data1'], bins=[0, 10,25 ])  
+# print(df1['data1'].unique())
+# https://www.javatpoint.com/pandas-dataframe-cut#:~:text=Pandas%20DataFrame.-,cut(),variable%20to%20a%20categorical%20variable.
+
+data= pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3)
+print(data)
+data2= pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3,labels=["bad","medium","good"])
+print(data2)
+# 顯示區間 
+# https://pandas.pydata.org/docs/reference/api/pandas.cut.html?highlight=cut#pandas.cut
