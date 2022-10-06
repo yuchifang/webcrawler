@@ -32,15 +32,49 @@
 # data =pd.merge(left, right, right_on=['E'], left_index = True, how = 'outer')  
 # print(data)
 
+# import pandas as pd
+# listOne = range(3)
+# listTwo = ["A","B","C"]
+# df1 = pd.DataFrame({"data2":listOne,"name":listTwo})
+# print(df1)
+# listT = range(5,0,-1)
+# listF = ["A","B","C","D","C"]
+# df2 = pd.DataFrame({"data1":listT,"name":listF})
+# print(df2)
+# df3 = pd.merge(df1,df2,left_index=True,right_on="data1")
+# # df3 = pd.merge(df1,df2,left_on="data2",right_index=True)
+# print(df3)
+
+# import pandas as pd
+# listOne = range(3)
+# listTwo = ["A","B","C"]
+# df1 = pd.DataFrame({"data":listOne,"name":listTwo})
+
+
+# name = ["D"]
+# listThree = [5]
+# dict2 = {"name": name,
+#                       "data": listThree
+# }
+
+# # 建立第二個 data frame
+# df2 = pd.DataFrame(dict2)
+# print(df1)
+# print(df1.unstack())
+# print(df1.stack())
+
+# concatData = pd.concat([df1,df2])
+# print(concatData)
+
+# some = range(4)
+# df3 = pd.DataFrame({"age":some})
+# print(df3)
+
+# df4 = pd.concat([concatData,df3],axis=0)
+# print(df4)
+# 分箱
 import pandas as pd
-listOne = range(3)
-listTwo = ["A","B","C"]
-df1 = pd.DataFrame({"data2":listOne,"name":listTwo})
+data1 = [1,2,3,10,12,15]
+name = ["A","B","C","D","E","F"]
+df1 = pd.DataFrame({"name":name,"data1":data1})
 print(df1)
-listT = range(5,0,-1)
-listF = ["A","B","C","D","C"]
-df2 = pd.DataFrame({"data1":listT,"name":listF})
-print(df2)
-df3 = pd.merge(df1,df2,left_index=True,right_on="data1")
-# df3 = pd.merge(df1,df2,left_on="data2",right_index=True)
-print(df3)
