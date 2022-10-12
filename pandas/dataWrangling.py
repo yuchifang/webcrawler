@@ -1,5 +1,5 @@
 # import pandas as pd
-# left = pd.DataFrame({'key1': ['K0', 'K0', 'K1', 'K2'], 
+# left = pd.DataFrame({'key1': ['K0', 'K0', 'K1', 'K2'],
 #                  'key2': ['K0', 'K1', 'K0', 'K1'],
 #                  'A': ['A0', 'A1', 'A2', 'A3'],
 #                  'B': ['B0', 'B1', 'B2', 'B3']})
@@ -29,7 +29,7 @@
 # 3   K2   K0  C3  D3  4
 # '''
 
-# data =pd.merge(left, right, right_on=['E'], left_index = True, how = 'outer')  
+# data =pd.merge(left, right, right_on=['E'], left_index = True, how = 'outer')
 # print(data)
 
 # import pandas as pd
@@ -73,19 +73,31 @@
 # df4 = pd.concat([concatData,df3],axis=0)
 # print(df4)
 # 分箱
+from matplotlib.pyplot import pink
 import pandas as pd
 import numpy as np
 # data1 = [1,2,3,10,12,15]
 # name = ["A","B","C","D","E","F"]
 # df1 = pd.DataFrame({"name":name,"data1":data1})
 # # print(df1)
-# df1['data1'] = pd.cut(x=df1['data1'], bins=[0, 10,25 ])  
+# df1['data1'] = pd.cut(x=df1['data1'], bins=[0, 10,25 ])
 # print(df1['data1'].unique())
 # https://www.javatpoint.com/pandas-dataframe-cut#:~:text=Pandas%20DataFrame.-,cut(),variable%20to%20a%20categorical%20variable.
 
-data= pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3)
-print(data)
-data2= pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3,labels=["bad","medium","good"])
-print(data2)
-# 顯示區間 
+# data = pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3)
+# print(data)
+# data2 = pd.cut(np.array([1, 7, 5, 4, 6, 3]), 3,
+#                labels=["bad", "medium", "good"])
+# print(data2)
+# 顯示區間
 # https://pandas.pydata.org/docs/reference/api/pandas.cut.html?highlight=cut#pandas.cut
+
+info_nums = pd.DataFrame({'num': np.random.randint(1, 50, 11)})
+# print(info_nums)
+info_nums['num_bins'] = pd.cut(x=info_nums['num'], bins=[
+                               1, 25, 50], right=False)
+print(info_nums)
+print("----------")
+print(info_nums['num_bins'])
+print("******")
+print(info_nums['num_bins'].unique())

@@ -1,7 +1,6 @@
-n=0
-# for i in range(2,len(data)):     
-#     for j in range(i-1):
-#         for k in range(j+1,i):
-#             if(data[i] ==data[k]+data[j]):
-#                 n+=1
-# print(n)
+data = int(input())
+for item in range(1, data):
+    if item * item < data:
+        print(item*item)
+    else:
+        break
