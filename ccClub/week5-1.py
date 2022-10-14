@@ -1,19 +1,19 @@
 # string issue
 
-# input1 = list(input())
-# dict = {}
-# for item in input1:
-#     data2 = item.lower()
-#     try:
-#         dict[data2]
-#     except KeyError:
-#         dict[data2] = 1
-#     else:
-#         dict[data2] = dict[data2]+1
+input1 = list(input())
+dict = {}
+for item in input1:
+    data2 = item.lower()
+    try:
+        dict[data2]
+    except KeyError:
+        dict[data2] = 1
+    else:
+        dict[data2] = dict[data2]+1
 
-# for data in sorted(dict):
-#     if data.isalpha():
-#         print(f"{data}{dict[data]}", end=" ")
+for data in sorted(dict):
+    if data.isalpha():
+        print(f"{data}{dict[data]}", end=" ")
 
 #
 # 2 3
