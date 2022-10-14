@@ -21,14 +21,18 @@ for item in data:
     else:
         alphabetDict[AscItem] = alphabetDict[AscItem] + 1
 
-print(alphabetDict)
 newAlphabetDict={}
+print(alphabetDict)
+
 for item in alphabetDict:
     if item+32 < 122 and item+32 in alphabetDict:
         newAlphabetDict[item+32] = alphabetDict[item] + alphabetDict[item+32]
     else:
-        newAlphabetDict[item] =alphabetDict[item]
+        if item in newAlphabetDict:
+            newAlphabetDict[item] =alphabetDict[item]+ newAlphabetDict[item]
+        else: # test APPLEappleD and appleAPPLED
+            newAlphabetDict[item] =alphabetDict[item]
 
+print(newAlphabetDict)
 for item in sorted(newAlphabetDict,key=isValid):
-    print("item",item)
-    # print(f"{chr(item)}{newAlphabetDict[item]}",end=" ")
+    print(f"{chr(item)}{newAlphabetDict[item]}",end=" ")
