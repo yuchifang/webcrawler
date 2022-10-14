@@ -4,6 +4,11 @@ def isAlphabet(item):
     else:
         return False
 
+def isValid(item):
+    if item <91:
+        return item+32
+    return item
+
 input1 = list(input())
 data=filter(isAlphabet,input1)
 alphabetDict={}
@@ -17,11 +22,13 @@ for item in data:
         alphabetDict[AscItem] = alphabetDict[AscItem] + 1
 
 print(alphabetDict)
-
+newAlphabetDict={}
 for item in alphabetDict:
-    print("item",item)
     if item+32 < 122 and item+32 in alphabetDict:
-        alphabetDict[item+32] = alphabetDict[item] + alphabetDict[item+32]
-        del alphabetDict[item]
+        newAlphabetDict[item+32] = alphabetDict[item] + alphabetDict[item+32]
+    else:
+        newAlphabetDict[item] =alphabetDict[item]
 
-print(alphabetDict)
+for item in sorted(newAlphabetDict,key=isValid):
+    print("item",item)
+    # print(f"{chr(item)}{newAlphabetDict[item]}",end=" ")
