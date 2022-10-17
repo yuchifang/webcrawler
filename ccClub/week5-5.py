@@ -20,7 +20,10 @@
 9876 = 9876
 3578 = 8573
 102030405060708090 = 902030405060708010
-991199 = 999191
+991199 
+=
+999191
+999119
 
 /找到最大值 取得
 '''
@@ -32,18 +35,13 @@ input1 = [int(item) for item in input()]
 def isValid(input1):
     indexCount = 0 
     for item in input1:
-        # print(item)
-        insideIndex = 0
-        for itemCompare in range(indexCount+1,len(input1)):
-            # print(itemCompare)
-            if input1[itemCompare] > item:
-                temp = [input1[itemCompare],insideIndex]
-                input1[indexCount] = input1[itemCompare]
-                print(temp)
-                input1[insideIndex] = temp[0]
-                print(" ".join([str(item) for item in input1]))
+        for insideIndexCompare in range(indexCount+1,len(input1)):
+            # todo 這邊可能要 後面找
+            if input1[insideIndexCompare] > item:
+                input1[indexCount] = input1[insideIndexCompare]
+                input1[insideIndexCompare] = item
+                print("".join([str(item) for item in input1]))
                 return 
-            insideIndex+=1
             
         indexCount+=1
 isValid(input1)
