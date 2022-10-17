@@ -20,63 +20,43 @@
 9876 = 9876
 3578 = 8573
 102030405060708090 = 902030405060708010
-991199 
-=
-999191
-999119
-
+991199 = 999191
+498712301 = 948712301 
+988588011 = 988885011
+98769 = 99768
 /找到最大值 取得
 '''
 
 # 988588011 test case
-input1 = [int(item) for item in input()]
 # 把所有的值 位置都記錄起來
 # 第一個數字不能為0
+
+# 想想有沒有更快的解法 一次迴圈?
+input1 = [int(item) for item in input()]
+
+
 def isValid(input1):
-    indexCount = 0 
+    temp = 0
+    indexCount = 0
+    # 從頭開始找值
     for item in input1:
-        for insideIndexCompare in range(indexCount+1,len(input1)):
-            # todo 這邊可能要 後面找
+        # 從尾開始找值
+        for insideIndexCompare in range(len(input1)-1, indexCount, -1):
+            input2 = input1[:]
+            # 如果尾比頭大 交換
             if input1[insideIndexCompare] > item:
-                input1[indexCount] = input1[insideIndexCompare]
-                input1[insideIndexCompare] = item
-                print("".join([str(item) for item in input1]))
-                return 
-            
-        indexCount+=1
-isValid(input1)
-'''
-dictALLNumber={}
-# indexnumbr:number
-AllNumberIndex = 0
-for item in input1:
-    dictALLNumber[f"{AllNumberIndex}{item}"] = item
-    AllNumberIndex += 1
+                input2[indexCount] = input2[insideIndexCompare]
+                input2[insideIndexCompare] = item
+                data = int("".join([str(item) for item in input2]))
+                if data > temp:
+                    temp = data
+        if temp != 0:
+            return temp
+        indexCount += 1
 
-print(dictALLNumber)
-'''
 
-'''
-maxIndex = -1
-# 從尾巴找到最大值 # 把所有的值 位置都記錄起來 
-for index in range(len(input1)-1, -1, -1):
-    if input1[index] > max:
-        max = input1[index]
-        maxIndex = index
-
-Index = 0
-minIndex = -1
-for data in input1:
-    if max > data and minIndex == -1:
-        minIndex = input1.index(data)
-    Index += 1
-
-print("maxIndex", maxIndex)
-print("minIndex", minIndex)
-
-if maxIndex > minIndex:
-    input1[maxIndex] = input1[minIndex]
-    input1[minIndex] = max
-
-print("".join([str(item) for item in input1]))
-'''
+data = isValid(input1)
+if data:
+    print(data)
+else:
+    print("".join([str(item) for item in input1]))

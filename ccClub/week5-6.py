@@ -10,3 +10,9 @@ end
 '''
 "「"
 "」"
+
+input1 = input()
+data = ""
+while data != "end":
+    data = input()
+    print(data)
