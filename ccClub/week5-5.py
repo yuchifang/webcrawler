@@ -27,8 +27,40 @@
 
 # 988588011 test case
 input1 = [int(item) for item in input()]
-max = 0
+# 把所有的值 位置都記錄起來
+# 第一個數字不能為0
+def isValid(input1):
+    indexCount = 0 
+    for item in input1:
+        # print(item)
+        insideIndex = 0
+        for itemCompare in range(indexCount+1,len(input1)):
+            # print(itemCompare)
+            if input1[itemCompare] > item:
+                temp = [input1[itemCompare],insideIndex]
+                input1[indexCount] = input1[itemCompare]
+                print(temp)
+                input1[insideIndex] = temp[0]
+                print(" ".join([str(item) for item in input1]))
+                return 
+            insideIndex+=1
+            
+        indexCount+=1
+isValid(input1)
+'''
+dictALLNumber={}
+# indexnumbr:number
+AllNumberIndex = 0
+for item in input1:
+    dictALLNumber[f"{AllNumberIndex}{item}"] = item
+    AllNumberIndex += 1
+
+print(dictALLNumber)
+'''
+
+'''
 maxIndex = -1
+# 從尾巴找到最大值 # 把所有的值 位置都記錄起來 
 for index in range(len(input1)-1, -1, -1):
     if input1[index] > max:
         max = input1[index]
@@ -49,3 +81,4 @@ if maxIndex > minIndex:
     input1[minIndex] = max
 
 print("".join([str(item) for item in input1]))
+'''

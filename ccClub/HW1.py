@@ -22,17 +22,20 @@ for item in data:
         alphabetDict[AscItem] = alphabetDict[AscItem] + 1
 
 newAlphabetDict={}
-print(alphabetDict)
 
 for item in alphabetDict:
+    # 如果 大寫小寫都存在在 dict 中 則相加
     if item+32 < 122 and item+32 in alphabetDict:
         newAlphabetDict[item+32] = alphabetDict[item] + alphabetDict[item+32]
     else:
+        # 處理小寫 or 只有大寫自己的情況
         if item in newAlphabetDict:
-            newAlphabetDict[item] =alphabetDict[item]+ newAlphabetDict[item]
+            pass
         else: # test APPLEappleD and appleAPPLED
             newAlphabetDict[item] =alphabetDict[item]
 
-print(newAlphabetDict)
 for item in sorted(newAlphabetDict,key=isValid):
-    print(f"{chr(item)}{newAlphabetDict[item]}",end=" ")
+    if item < 91 :
+        print(f"{chr(item+32)}{newAlphabetDict[item]}",end=" ")
+    else:
+        print(f"{chr(item)}{newAlphabetDict[item]}",end=" ")
