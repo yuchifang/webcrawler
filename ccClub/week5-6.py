@@ -38,18 +38,23 @@ end
 #         print(data.replace(item, dictItem[item]))
 
 
+from audioop import reverse
+
+
 input1 = input().split()
 dictItem = {}
 for item in input1:
     data="*".join(list(item))
     dictItem[item] = "「" + data +"」"
 
-sortedInput1 = sorted(input1,key=len)
-print(sortedInput1)
-data = ""
-while data != "end":
+sortedInput1 = sorted(input1,key=len,reverse=True)
+isValid = True
+while isValid:
     data = input()
-    newdata = data
-    for item in sortedInput1:
-        newdata = newdata.replace(item, dictItem[item])
-    print(newdata)
+    if data == "end":
+        isValid = False
+    else:
+        newdata = data
+        for item in sortedInput1:
+            newdata = newdata.replace(item, dictItem[item])
+        print(newdata.replace("*",""))
