@@ -32,22 +32,24 @@
 # 第一個數字不能為0
 
 # 想想有沒有更快的解法 一次迴圈?
-input1 = [int(item) for item in input()]
+# Time Limit Exceeded
+input1 = [item for item in input()]
 
-
+totalInputLength = len(input1)
 def isValid(input1):
     temp = 0
     indexCount = 0
     # 從頭開始找值
     for item in input1:
         # 從尾開始找值
-        for insideIndexCompare in range(len(input1)-1, indexCount, -1):
-            input2 = input1[:]
+        for insideIndexCompare in range(totalInputLength-1, indexCount, -1):
+            input2 = input1.copy()
             # 如果尾比頭大 交換
             if input1[insideIndexCompare] > item:
                 input2[indexCount] = input2[insideIndexCompare]
                 input2[insideIndexCompare] = item
-                data = int("".join([str(item) for item in input2]))
+                data = int("".join(input2))
+                # 紀錄值替換後的值 為了此內層for比大小用
                 if data > temp:
                     temp = data
         if temp != 0:
@@ -58,5 +60,5 @@ def isValid(input1):
 data = isValid(input1)
 if data:
     print(data)
-else:
-    print("".join([str(item) for item in input1]))
+else:# 沒找到 print 原字串
+    print("".join(input1))
