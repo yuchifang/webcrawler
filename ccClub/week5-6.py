@@ -26,13 +26,30 @@ test case 2
 end
 
 '''
+# input1 = input().split()
+# dictItem = {}
+# for item in input1:
+#     dictItem[item] = "「" + item +"」"
+
+# data = ""
+# while data != "end":
+#     data = input()
+#     for item in dictItem:
+#         print(data.replace(item, dictItem[item]))
+
+
 input1 = input().split()
 dictItem = {}
 for item in input1:
-    dictItem[item] = "「" + item+"」"
+    data="*".join(list(item))
+    dictItem[item] = "「" + data +"」"
 
+sortedInput1 = sorted(input1,key=len)
+print(sortedInput1)
 data = ""
 while data != "end":
     data = input()
-    for item in dictItem:
-        print(data.replace(item, dictItem[item]))
+    newdata = data
+    for item in sortedInput1:
+        newdata = newdata.replace(item, dictItem[item])
+    print(newdata)
