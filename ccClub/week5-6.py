@@ -38,7 +38,7 @@ end
 #         print(data.replace(item, dictItem[item]))
 
 
-from audioop import reverse
+# 試著單行單行看
 
 
 input1 = input().split()
