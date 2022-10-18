@@ -48,16 +48,18 @@ for item in input1:
     dictItem[item] = "「" + data +"」"
 
 sortedInput1 = sorted(input1,key=len,reverse=True)
+print("test")
+print(sortedInput1)
+print("test")
 isValid = True
 while isValid:
     data = input()
-    print("----------------------")
-    print("data",data)
+    print("-----------")
+    print(data)
     if data == "end":
         isValid = False
     else:
         newdata = data
         for item in sortedInput1:
             newdata = newdata.replace(item, dictItem[item])
-        print("!!!!!!!!!!!!!!!!!!!!!")  
         print(newdata.replace("*",""))
