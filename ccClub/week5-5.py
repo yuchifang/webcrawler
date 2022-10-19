@@ -62,3 +62,26 @@ if data:
     print(data)
 else:# 沒找到 print 原字串
     print("".join(input1))
+
+
+# other guy answer
+input1 = [int(x) for x in[*input()]]
+tMax = -1
+tMaxIndex = -1
+lIndex = -1
+RIndex = 0
+
+
+for index in range(len(input1)-1,-1,-1):
+    if input1[index] > tMax:
+        tMax = input1[index]
+        tMaxIndex = index
+        continue
+    if input1[index]<tMax:
+        lIndex = index
+        RIndex=tMaxIndex
+if lIndex ==-1:
+    print(int("".join(map(str,input))))
+else:
+    lIndex[lIndex],lIndex[RIndex]=input1[RIndex],input1[lIndex]
+    print(int(''.join(map(str,input1))))
