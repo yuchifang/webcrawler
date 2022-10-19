@@ -22,7 +22,7 @@ awewaaj
 aedrhews
 3
 
-最小洗調色盤次數
+最小洗調色盤次數 這個有問題在想想其它解法
 '''
 input1 = int(input()) 
 input2 = list(input())
@@ -30,9 +30,11 @@ dictColor = {}
 allColor = len(input2)
 addColorCount=0
 changeColorCount=0
+# 最小條色盤次數 ?? 感覺怪怪的
+
+# 
 
 for item in range(allColor):
-
     if item not in dictColor:
         dictColor[item] = 1
         addColorCount +=1
