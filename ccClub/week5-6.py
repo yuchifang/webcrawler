@@ -25,18 +25,18 @@ test case 2
 快樂且愉悅
 end
 
+
+
 '''
-# input1 = input().split()
-# dictItem = {}
-# for item in input1:
-#     dictItem[item] = "「" + item +"」"
-
-# data = ""
-# while data != "end":
-#     data = input()
-#     for item in dictItem:
-#         print(data.replace(item, dictItem[item]))
-
+'''
+S1
+對每一行依據 
+替換長度為優先 做替換 
+替換完改變字串 在每個字串中 加入*
+（判斷 替換字串長度）
+S2
+轉換為特殊字元 for 題目描述
+'''
 
 # 試著單行單行看
 
