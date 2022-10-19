@@ -65,6 +65,10 @@ else:# 沒找到 print 原字串
 
 
 # other guy answer
+# [*input()] ??
+# lIndex[lIndex],lIndex[RIndex]=input1[RIndex],input1[lIndex]
+
+
 input1 = [int(x) for x in[*input()]]
 tMax = -1
 tMaxIndex = -1
