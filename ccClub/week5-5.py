@@ -68,49 +68,50 @@
 
 # # other guy answer
 # # [*input()] ??
-# # lIndex[lIndex],lIndex[RIndex]=input1[RIndex],input1[lIndex]
+# lIndex[lIndex],lIndex[RIndex]=input1[RIndex],input1[lIndex]
 
 
-# input1 = [int(x) for x in[*input()]]
-# tMax = -1
-# tMaxIndex = -1
-# lIndex = -1
-# RIndex = 0
+input1 = [int(x) for x in [*input()]]
+tMax = -1
+tMaxIndex = -1
+lIndex = -1
+RIndex = 0
 
+for index in range(len(input1)-1, -1, -1):
+    if input1[index] > tMax:  # 從找尾最大值
+        tMax = input1[index]
+        tMaxIndex = index
+        continue
+    if input1[index] < tMax:  # 從 比最大值小的值
+        lIndex = index
+        RIndex = tMaxIndex
+if lIndex == -1:
+    print(int("".join(map(str, input))))
+else:
+    input1[lIndex], input1[RIndex] = input1[RIndex], input1[lIndex]
+    print(int(''.join(map(str, input1))))
 
-# for index in range(len(input1)-1,-1,-1):
-#     if input1[index] > tMax: # 從找尾最大值 
-#         tMax = input1[index]
-#         tMaxIndex = index
-#         continue
-#     if input1[index]<tMax: # 從 比最大值小的值
-#         lIndex = index
-#         RIndex=tMaxIndex
-# if lIndex ==-1:
-#     print(int("".join(map(str,input))))
-# else:
-#     input1[lIndex],input1[RIndex]=input1[RIndex],input1[lIndex]
-#     print(int(''.join(map(str,input1))))
+# 用 [8,3,7,6] 做 sorted 與原字串 做比較
+# 比與此數列
 
-
-
+'''
 
 input1 = [int(item) for item in input()]
-maxValue =-1
+maxValue = -1
 maxIndex = 0
 maxValueMinIndex = -1
-minValue=0
+minValue = 0
 for item in input1:
-    if maxValue <= item and maxIndex != 0 and max(input1)>item:
+    if maxValue <= item and maxIndex != 0 and max(input1) > item:
         maxValue = item
         maxValueMinIndex = maxIndex
-    maxIndex +=1
+    maxIndex += 1
 for index in range(maxValueMinIndex):
     if input1[index] < maxValue:
-        input1[index],input1[maxValueMinIndex] =maxValue,input1[index]
+        input1[index], input1[maxValueMinIndex] = maxValue, input1[index]
         break
 print("".join([str(item) for item in input1]))
-'''
+
 9876 = 9876
 3578 = 8573
 102030405060708090 = 902030405060708010
