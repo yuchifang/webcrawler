@@ -10,6 +10,11 @@ b b a c
 c c c l u b
 
 6 1 4 5 2 3
+
+
+看看這個code 依據題目要求結果如何
+6 4 3 2 1 7
+c c c l u b
 '''
 
 input1Number = [int(item) for item in input().split()]
