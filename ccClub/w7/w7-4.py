@@ -41,36 +41,51 @@ b
 103
 1
 
+2
+a 100 b b b
+b 1
+1
+a
+
+
+
+a = b + c
+c = d + d
+b = e + e
+
+a + c + d (?
+
+
+5
+a 100 b b b c
+b 1 d d
+c 2 e e
+d 3
+e 3
+2
+a
+b
+129
+7
 '''
-menu = {}
+
+menuCost = {}
+menuItem = {}
 input1 = int(input())
 for item in range(input1):
     data = input().split()
-    if len(data) == 2:
-        menu[data.pop(0)] = data
-    else:
-        menu[data.pop(0)] = data
+    menuCost[data[0]] = data.pop(1)
+    if len(data) ==1:
+        
+    menuItem[data[0]] = data
 
 input2 = int(input())
 
 totalWantItem = []
 for item in range(input2):
     data = input()
-    totalWantItem.append(menu[data])
-for item in totalWantItem:
+    totalWantItem.append(data)
 
-    if len(item) >=2:
-        add = int(item.pop(0))
-        for data in item:
-            add += int(menu[data][0])
-        print(add)
-
-    else:
-        print(int(item[0]))
-
-
-        
-
-
-
+print(menuItem)
+print(menuCost)
 
