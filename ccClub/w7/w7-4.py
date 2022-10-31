@@ -75,9 +75,9 @@ input1 = int(input())
 for item in range(input1):
     data = input().split()
     menuCost[data[0]] = data.pop(1)
-    if len(data) ==1:
-        
-    menuItem[data[0]] = data
+    if len(data) <2:
+        continue
+    menuItem[data[0]] = data[1::]
 
 input2 = int(input())
 
