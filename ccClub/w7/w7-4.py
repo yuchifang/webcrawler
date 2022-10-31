@@ -85,42 +85,18 @@ menuCost = {}
 menuItem = {}
 input1 = int(input())
 for item in range(input1):
-    data = input().split()
-    menuCost[data[0]] = int(data.pop(1))
-    if len(data) < 2:
-        continue
-    menuItem[data[0]] = data
+    inputList = input().split()
+    menuCost[inputList[0]] = int(inputList[1])
+    menuItem[inputList[0]] = inputList[2::]
 
 input2 = int(input())
 
-totalWantItem = []
+
+def handleCost(wantItem: str):
+    subTotal = [handleCost(item) for item in menuItem[wantItem]]
+    return menuCost[wantItem] + sum(subTotal)
+
+
 for item in range(input2):
     data = input()
-    totalWantItem.append(data)
-
-print(menuCost)
-print(menuItem)
-
-
-def handleCost(wantItem: str, cost, newMenuItem: dict):
-    if wantItem in newMenuItem:
-        for data in newMenuItem[wantItem]:
-            print(newMenuItem)
-            print(cost)
-            print(wantItem)
-            print(newMenuItem[wantItem])
-            if wantItem in newMenuItem[wantItem]:
-                cost += menuCost[wantItem]
-                newMenuItem[wantItem].remove(wantItem)
-            cost += handleCost(data, cost, newMenuItem)
-
-        return cost
-    else:
-        return menuCost[item]
-
-
-for item in totalWantItem:
-    cost = 0
-    newMenuItem = menuItem.copy()
-    cost += handleCost(item, cost, newMenuItem)
-    print(cost)
+    print(handleCost(data))
