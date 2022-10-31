@@ -40,6 +40,17 @@ b
 
 103
 1
+'''
+# 可能有三層的結果
+'''
+
+5
+c 100 a b
+a 200 d e
+b 300 d d
+d 10
+e 20
+
 
 2
 a 100 b b b
@@ -76,7 +87,7 @@ input1 = int(input())
 for item in range(input1):
     data = input().split()
     menuCost[data[0]] = int(data.pop(1))
-    if len(data) <2:
+    if len(data) < 2:
         continue
     menuItem[data[0]] = data
 
@@ -90,7 +101,8 @@ for item in range(input2):
 print(menuCost)
 print(menuItem)
 
-def handleCost(wantItem:str, cost, newMenuItem:dict):
+
+def handleCost(wantItem: str, cost, newMenuItem: dict):
     if wantItem in newMenuItem:
         for data in newMenuItem[wantItem]:
             print(newMenuItem)
@@ -100,14 +112,15 @@ def handleCost(wantItem:str, cost, newMenuItem:dict):
             if wantItem in newMenuItem[wantItem]:
                 cost += menuCost[wantItem]
                 newMenuItem[wantItem].remove(wantItem)
-            cost += handleCost(data,cost,newMenuItem)
-        
+            cost += handleCost(data, cost, newMenuItem)
+
         return cost
     else:
-        return menuCost[item] 
+        return menuCost[item]
+
 
 for item in totalWantItem:
     cost = 0
     newMenuItem = menuItem.copy()
-    cost += handleCost(item,cost,newMenuItem)
+    cost += handleCost(item, cost, newMenuItem)
     print(cost)
