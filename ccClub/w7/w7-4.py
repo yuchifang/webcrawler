@@ -44,8 +44,9 @@ b
 2
 a 100 b b b
 b 1
-1
+2
 a
+b
 
 
 
@@ -74,7 +75,7 @@ menuItem = {}
 input1 = int(input())
 for item in range(input1):
     data = input().split()
-    menuCost[data[0]] = data.pop(1)
+    menuCost[data[0]] = int(data.pop(1))
     if len(data) <2:
         continue
     menuItem[data[0]] = data[1::]
@@ -86,6 +87,18 @@ for item in range(input2):
     data = input()
     totalWantItem.append(data)
 
-print(menuItem)
 print(menuCost)
+print(menuItem)
 
+def handleCost(item, cost):
+    if item in menuItem:
+        for data in menuItem[item]:
+            cost += handleCost(data,cost)
+        return cost
+    else:
+        return menuCost[item] 
+
+for item in totalWantItem:
+    cost = 0
+    cost = handleCost(item,cost)
+    print(cost)
