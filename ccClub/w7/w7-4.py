@@ -93,6 +93,10 @@ print(menuItem)
 def handleCost(wantItem:str, cost, newMenuItem:dict):
     if wantItem in newMenuItem:
         for data in newMenuItem[wantItem]:
+            print(newMenuItem)
+            print(cost)
+            print(wantItem)
+            print(newMenuItem[wantItem])
             if wantItem in newMenuItem[wantItem]:
                 cost += menuCost[wantItem]
                 newMenuItem[wantItem].remove(wantItem)
