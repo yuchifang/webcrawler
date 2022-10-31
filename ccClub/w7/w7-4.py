@@ -78,7 +78,7 @@ for item in range(input1):
     menuCost[data[0]] = int(data.pop(1))
     if len(data) <2:
         continue
-    menuItem[data[0]] = data[1::]
+    menuItem[data[0]] = data
 
 input2 = int(input())
 
@@ -90,15 +90,20 @@ for item in range(input2):
 print(menuCost)
 print(menuItem)
 
-def handleCost(item, cost):
-    if item in menuItem:
-        for data in menuItem[item]:
-            cost += handleCost(data,cost)
+def handleCost(wantItem:str, cost, newMenuItem:dict):
+    if wantItem in newMenuItem:
+        for data in newMenuItem[wantItem]:
+            if wantItem in newMenuItem[wantItem]:
+                cost += menuCost[wantItem]
+                newMenuItem[wantItem].remove(wantItem)
+            cost += handleCost(data,cost,newMenuItem)
+        
         return cost
     else:
         return menuCost[item] 
 
 for item in totalWantItem:
     cost = 0
-    cost = handleCost(item,cost)
+    newMenuItem = menuItem.copy()
+    cost += handleCost(item,cost,newMenuItem)
     print(cost)
