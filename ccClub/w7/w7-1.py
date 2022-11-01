@@ -73,6 +73,10 @@ Output
 
 
 '''
+2 3 
+-6 -5 
+0 1
+-1 0
 1 2 3 5 6 7 8
 4
 I1 C2
@@ -87,14 +91,15 @@ I6
 input1 = [int(item) for item in input().split()]
 totalCountList = []
 indexIncrease = 0
+isIncrease = False
 for index,item in enumerate(input1):
     if len(input1) ==1:
         totalCountList=[0]
         break
     count = 2
-    diff = abs(input1[indexIncrease+1]-input1[indexIncrease])
+    diff = input1[indexIncrease+1]-input1[indexIncrease]
     indexIncrease = indexIncrease+1
-    while indexIncrease +1 != len(input1)  and input1[indexIncrease] + diff == input1[indexIncrease+1] :
+    while  diff > 0 and indexIncrease +1 != len(input1)  and input1[indexIncrease] + diff == input1[indexIncrease+1] :
         indexIncrease+=1
         count +=1
 
@@ -102,6 +107,7 @@ for index,item in enumerate(input1):
     if indexIncrease +1 >= len(input1) -1:
         break
 print(max(totalCountList))
+
 
 
 
