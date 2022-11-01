@@ -71,30 +71,37 @@ Output
 取絕對值 的差
 '''
 
-input1 = [int(item) for item in input().split()]
-totalCountList = []
-
-
-indexIncrease = 0
 
 '''
 1 2 3 5 6 7 8
 4
+I1 C2
+I2 C3
+L[3]
+I3 C2
+L[3,2]
+I4 C2
+I5 C3
+I6
 '''
+input1 = [int(item) for item in input().split()]
+totalCountList = []
+indexIncrease = 0
 for index,item in enumerate(input1):
+    if len(input1) ==1:
+        totalCountList=[0]
+        break
     count = 2
     diff = abs(input1[indexIncrease+1]-input1[indexIncrease])
     indexIncrease = indexIncrease+1
-    print("indexIncrease",indexIncrease)
-    while indexIncrease +1 < len(input1) -1  and input1[indexIncrease] + diff == input1[indexIncrease+1] :
-        print(indexIncrease)
+    while indexIncrease +1 != len(input1)  and input1[indexIncrease] + diff == input1[indexIncrease+1] :
         indexIncrease+=1
         count +=1
 
     totalCountList.append(count)
     if indexIncrease +1 >= len(input1) -1:
         break
-print(totalCountList)
+print(max(totalCountList))
 
 
 
