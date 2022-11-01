@@ -79,14 +79,7 @@ Output
 -1 0
 1 2 3 5 6 7 8
 4
-I1 C2
-I2 C3
-L[3]
-I3 C2
-L[3,2]
-I4 C2
-I5 C3
-I6
+
 '''
 input1 = [int(item) for item in input().split()]
 totalCountList = []
