@@ -45,52 +45,35 @@ Input
 Output
 輸出為一行，包含一個數字
 
+0 = 0
+1 = 1
+-5 -4 -3 -2 -1 = 5
+-1 0 1 2 3 4 = 6
+1 2 3 4 5 6 7 8 = 8 
+1 2 3 5 6 7 8 = 4
+5 4 3 2 1 = 0
+3 2 3 1 = 2
+1 2 3 4 5 1 2 = 5
+1 2 1 2 3 4 5 = 5
 
-0 
-0
-
-
--5 -4 -3 -2 -1
-5
-
-
--1 0 1 2 3 4
-6
-
-
-
-
-1 2 3 4 5 6 7 8
-8 
-
-
-1 2 3 5 6 7 8
-4
-
-
+10 20 30 => 3
+30 20 10 => 1
+輸入 => 輸出
 取絕對值 的差
 '''
 
-
-'''
-2 3 
--6 -5 
-0 1
--1 0
-1 2 3 5 6 7 8
-4
-
-'''
 input1 = [int(item) for item in input().split()]
 totalCountList = []
 indexIncrease = 0
 isIncrease = False
 for index, item in enumerate(input1):
     if len(input1) == 1:
-        totalCountList = [0]
+        totalCountList = [1]
         break
     count = 2
     diff = input1[indexIncrease+1]-input1[indexIncrease]
+    if diff < 0:
+        count = 1
     indexIncrease = indexIncrease+1
     while diff > 0 and indexIncrease + 1 != len(input1) and input1[indexIncrease] + diff == input1[indexIncrease+1]:
         indexIncrease += 1
