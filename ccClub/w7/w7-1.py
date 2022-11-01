@@ -8,6 +8,12 @@
 1 2 5 6 9
 3
 '''
+# data = [int(item) for item in input().split()]
+# for item in data:
+#     # 用物件記錄 key 為差值 value 為陣列
+#     pass
+
+
 # todo 解法一
 '''
 
@@ -31,39 +37,69 @@ for item in dicDiff:
         count = 1
 print(max(countList))
 '''
-# 0 = 0
-# 1 2 3 4 5 6 7 8 = 8
-# 1 2 3 5 6 7 8 = 4
-# 1 2 5 6 9 = 2
 
-data = [int(item) for item in input().split()]
-
-
-def isValid(data):
-    diff = 0
-    count = 1
-    countList = []
-    dataLength = len(data)
-    for index, item in enumerate(data):  # enumerate
-        if len(data) == 1:
-            return [0]
-        if index+1 == dataLength:
-            if data[index] - data[index-1] == diff:
-                count += 1
-                countList.append(count)
-            else:
-                count = 1
-                countList.append(count)
-
-            break
-
-        if diff != item - data[index+1]:
-            countList.append(count)
-            count = 2
-            diff = item - data[index+1]
-        elif diff == item - data[index+1]:
-            count += 1
-    return countList
+'''
+給定 k 個數(k >= 1)，找出這 k 個數中連續的數（遞增）最多幾次。
+Input
+輸入為一行，包含數個整數，以空白為間隔
+Output
+輸出為一行，包含一個數字
 
 
-print(max(isValid(data)))
+0 
+0
+
+
+-5 -4 -3 -2 -1
+5
+
+
+-1 0 1 2 3 4
+6
+
+
+
+
+1 2 3 4 5 6 7 8
+8 
+
+
+1 2 3 5 6 7 8
+4
+
+
+取絕對值 的差
+'''
+
+
+'''
+2 3 
+-6 -5 
+0 1
+-1 0
+1 2 3 5 6 7 8
+4
+
+'''
+input1 = [int(item) for item in input().split()]
+totalCountList = []
+indexIncrease = 0
+isIncrease = False
+for index, item in enumerate(input1):
+    if len(input1) == 1:
+        totalCountList = [0]
+        break
+    count = 2
+    diff = input1[indexIncrease+1]-input1[indexIncrease]
+    indexIncrease = indexIncrease+1
+    while diff > 0 and indexIncrease + 1 != len(input1) and input1[indexIncrease] + diff == input1[indexIncrease+1]:
+        indexIncrease += 1
+        count += 1
+
+    totalCountList.append(count)
+    if indexIncrease + 1 >= len(input1) - 1:
+        break
+print(max(totalCountList))
+
+
+# print(totalCountList)
