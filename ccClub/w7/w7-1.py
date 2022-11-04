@@ -62,27 +62,37 @@ Output
 取絕對值 的差
 '''
 
-input1 = [int(item) for item in input().split()]
-totalCountList = []
-indexIncrease = 0
-isIncrease = False
-for index, item in enumerate(input1):
-    if len(input1) == 1:
-        totalCountList = [1]
+input_Number_List = [int(item) for item in input().split()]
+total_Count_List = []
+index_Increase = 0
+
+for index, number in enumerate(input_Number_List):
+    # 如果輸入陣列 長度為一
+    if len(input_Number_List) == 1:
+        total_Count_List = [1]
         break
+
+    # 預設 count 如果 1 2 為 2
     count = 2
-    diff = input1[indexIncrease+1]-input1[indexIncrease]
+
+    # 計算  index 1 - index 0 的差
+    diff = input_Number_List[index_Increase+1] - \
+        input_Number_List[index_Increase]
+
+    # 如果差距 < 0 count = 1  # for 5 4 3 2 1
     if diff < 0:
         count = 1
-    indexIncrease = indexIncrease+1
-    while diff > 0 and indexIncrease + 1 != len(input1) and input1[indexIncrease] + diff == input1[indexIncrease+1]:
-        indexIncrease += 1
+
+    # 比較 index 1 index 2 # for 下面 while 用
+    index_Increase += 1
+
+    # diff 小於 0 遞減, 判斷 index_Increase 是否超過最大長度, 判斷 index 3 的值 是否等於 index 2 + diff
+    while diff > 0 and index_Increase + 1 != len(input_Number_List) and input_Number_List[index_Increase] + diff == input_Number_List[index_Increase+1]:
+
+        index_Increase += 1
         count += 1
 
-    totalCountList.append(count)
-    if indexIncrease + 1 >= len(input1) - 1:
+    total_Count_List.append(count)
+    if index_Increase + 1 >= len(input_Number_List) - 1:
         break
-print(max(totalCountList))
-
-
-# print(totalCountList)
+print(max(total_Count_List))
