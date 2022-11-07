@@ -13,26 +13,38 @@ mainClassDict = {}
 for item in range(4):
     data = input().split()
     if len(data) > 1:
-        mainClassDict[data[0]] = data[1::]
-    else:
-        mainClassDict[data[0]] = data[0]
-
+        mainClassDict[data[0]] = sorted(data[1::])
 wantItem = input()
 
 print(mainClassDict)
 
 count = 0
 
+returnList = ["*", wantItem]
+returnListLength = len(returnList)
 
-def getAllClass(inputItem, count):
-    print(count)
-    count += 1
+
+def getAllClass(inputItem):
+    global returnList, count
+
     if count > 20:
         return
-    if inputItem in mainClassDict and type(mainClassDict[inputItem]) == list:
-        return [getAllClass(item, count) for item in mainClassDict[inputItem]]
-    else:
-        return inputItem
+    if inputItem in mainClassDict and len(mainClassDict) > 1:
+        for item in mainClassDict[inputItem]:
+            returnList.insert(0, item)
+        returnList.insert(0, "*")
+        for item in mainClassDict[inputItem]:
+            getAllClass(item)
 
 
-print(getAllClass(wantItem, count))
+getAllClass(wantItem)
+print(returnList)
+'''
+a b c
+b e
+c d q
+f
+a
+'''
+
+# 不太知道同層 怎麼處理子層 順序的比較

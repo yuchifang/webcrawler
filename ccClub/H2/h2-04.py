@@ -15,32 +15,35 @@ c c c l u b
 看看這個code 依據題目要求結果如何
 6 4 3 2 1 7
 c c c l u b
+
+7 3 2 1 4 6
 '''
 
 input1Number = [int(item) for item in input().split()]
 input2Level = [item for item in input().split()]
-dic={}
+dic = {}
 totalLength = len(input2Level)
 
-for index,item in enumerate(input1Number):
+for index, item in enumerate(input1Number):
     level = input2Level[index]
     if level in dic:
-        dic[level].append(item)
+        dic[level].append(int(item))
     else:
-        dic[level] =[item]
+        dic[level] = [int(item)]
 
-returnArr =[]
+returnArr = []
 sortedDic = sorted(dic)
-outSideCount =0
-while outSideCount<totalLength:
+outSideCount = 0
+while outSideCount < totalLength:
     def appendFun(count):
         newCount = count
         for item in sortedDic:
-            if item in dic and len(dic[item])>0:
+            if item in dic and len(dic[item]) > 0:
+                dic[item] = sorted(dic[item])
                 returnArr.append(str(dic[item].pop(0)))
                 newCount += 1
         return newCount
 
-    if outSideCount<totalLength:
-       outSideCount = appendFun(outSideCount)
+    if outSideCount < totalLength:
+        outSideCount = appendFun(outSideCount)
 print(" ".join(returnArr))

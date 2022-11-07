@@ -47,28 +47,41 @@ Output
 
 0 = 0
 1 = 1
+
 -5 -4 -3 -2 -1 = 5
 -1 0 1 2 3 4 = 6
+
 1 2 3 4 5 6 7 8 = 8 
 1 2 3 5 6 7 8 = 4
-5 4 3 2 1 = 0
-3 2 3 1 = 2
 1 2 3 4 5 1 2 = 5
 1 2 1 2 3 4 5 = 5
 
+5 4 3 2 1 = 1
+3 2 3 1 = 2
+
+
 10 20 30 => 3
 30 20 10 => 1
-1 1 1 1 => 1
--1 -1 -1 0 => 2
-0 1 1 1 => 2
+1 1 1 1 1 => 1
+
+
+1 1 1 2 = 1
+-1 -1 -1 -1 0 = 1
+
+1 2 2 2 2 = 2
+-2 -1 -1 -1 = 2
+-3 -2 -2 -2 -2 = 1
+
+
 輸入 => 輸出
 取絕對值 的差
 '''
 
+# todo 把這個修好
+'''
 input_Number_List = [int(item) for item in input().split()]
 total_Count_List = []
 index_Increase = 0
-
 for index, number in enumerate(input_Number_List):
     # 如果輸入陣列 長度為一
     if len(input_Number_List) == 1:
@@ -81,9 +94,8 @@ for index, number in enumerate(input_Number_List):
     # 計算  index 1 - index 0 的差
     diff = input_Number_List[index_Increase+1] - \
         input_Number_List[index_Increase]
-
     # 如果差距 < 0 count = 1  # for 5 4 3 2 1
-    if diff < 0:
+    if diff <= 0:
         count = 1
 
     # 比較 index 1 index 2 # for 下面 while 用
@@ -96,6 +108,72 @@ for index, number in enumerate(input_Number_List):
         count += 1
 
     total_Count_List.append(count)
-    if index_Increase + 1 >= len(input_Number_List) - 1:
+    if index_Increase + 1 >= len(input_Number_List):
         break
+
 print(max(total_Count_List))
+'''
+
+
+'''
+0 = 0
+1 = 1
+
+-5 -4 -3 -2 -1 = 5
+-1 0 1 2 3 4 = 6
+
+1 2 3 4 5 6 7 8 = 8 
+1 2 3 5 6 7 8 = 4
+1 2 3 4 5 1 2 = 5
+1 2 1 2 3 4 5 = 5
+
+5 4 3 2 1 = 1
+3 2 3 1 = 2
+
+
+10 20 30 => 3
+30 20 10 => 1
+1 1 1 1 1 => 1
+
+
+1 1 1 2 = 2
+-1 -1 -1 -1 0 = 2
+
+1 2 2 2 2 = 2
+-2 -1 -1 -1 = 2
+-3 -2 -2 -2 -2 = 1
+
+-1 -2 -3 = 1
+-1 -1 -3 = 1
+'''
+
+input_Number_List = [int(item) for item in input().split()]
+compareList = input_Number_List[1::]
+diff = 0
+count = 0
+total_List_count = []
+
+if len(input_Number_List) == 1:
+    total_List_count = [1]
+
+for item1, item2 in zip(input_Number_List, compareList):
+
+    # 初始值
+    if count == 0:
+        diff = item1 - item2
+        if diff < 0:
+            count = 2
+    else:
+        if item1 - item2 == diff:
+            count += 1
+        else:
+            total_List_count.append(count)
+            diff = item1 - item2
+            if diff < 0:
+                count = 2
+
+    if diff >= 0:
+        count = 1
+    total_List_count.append(count)
+
+print(max(total_List_count))

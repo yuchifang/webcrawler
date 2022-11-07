@@ -46,10 +46,10 @@ output
 
 input
 0,0
-TWN20,36F
-TWN-1,2F
-TWN3,-3F
-TWN89,3F
+TWN20,36F 東
+TWN-1,2F 西
+TWN3,-3F 南
+TWN89,3F 北
 
 output
 Safe
@@ -84,5 +84,35 @@ Virus in your area
 
 # 國外 或是有與確診者接觸
 
+pos = [int(item) for item in input().split(",")]
+Alert_Str_List = []
+posDic = {
+    0: "East",
+    1: "West",
+    2: "South",
+    3: "North"
+}
 
+for index in range(4):
+    isForeign = False
+    isVirus = False
+    inRange = False
+    data = input()
+    if data[0:3] != "TWN":
+        isForeign = True
+    if data[-1::] == "T":
+        isVirus = True
+    curr_Pos = [int(item) for item in data[3:-1:].split(",")]
+    if ((curr_Pos[0]-pos[0])**2+(curr_Pos[1]-pos[1])**2)**0.5 < 100:
+        inRange = True
+    if inRange and (isForeign or isVirus):
+        Alert_Str_List.append(posDic[index])
 
+returnLength = len(Alert_Str_List)
+if returnLength == 0:
+    print("Safe")
+elif 4 > returnLength and returnLength > 0:
+    print("Alarm")
+    [print(item) for item in Alert_Str_List]
+else:
+    print("Virus in your area")
