@@ -29,5 +29,10 @@ x + y = 16
 '''
 x = 0
 y = 0
-((1,x),(1,y),16)
-((4,x),(8,y),120)
+equation1 = [(1,x),(1,y),16]
+equation2 = [(4,x),(8,y),120]
+diff=equation2[0][0]/equation1[0][0]
+equation1[0][0] * diff
+
+equation1[1][0] * diff # y
+# y X equation1[1][0] * diff + equation2[1][0] = equation2[2]-equation1[2] * diff
