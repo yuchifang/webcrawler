@@ -1,45 +1,31 @@
 '''
-輸入有 n + 2 行。
-第一行是欠債外國人的名字，以空格區隔。
-第二行是每個外國人對應的欠款金額，以空格區隔。
-最後 n 行中，每行包含一個外國人名字，代表莊主元龍安排的催討順序。
-
-輸出有 n 行，代表小明依序要催討的金額。
-Ana Bumper Cindy David
-100 200 300 400
-Ana
-Cindy
-Ana
-Cindy
-Bumper
-Ana
-
-100
-300
-100
-300
-200
-100
+4
+8
+16
+120
+True
 '''
-dataName = sorted(input().split())
-dataCost = [int(item) for item in input().split()]
-dataDataList = list(zip(dataName,dataCost))
 
+'''
+4
+8
+16
+40
+False
+非正整數、0、無解、無限多解,該題目都不合格，輸出 False。
+'''
+"x+y=16"
+"4x+8y=120"
 
-def binarySearch(target,dataDataList):
-    midIndex = len(dataDataList)//2
+'''
+  
+x = 16 - y
+4x # 64 - 4y
 
-    if dataDataList[midIndex][0] == target:
-        return dataDataList[midIndex][1]
-    if dataDataList[midIndex][0] > target:
-        return binarySearch(target,dataDataList[0:midIndex:])
-    if dataDataList[midIndex][0] < target:
-        return binarySearch(target,dataDataList[midIndex::])
-    if len(dataDataList) == 1:
-        return
-inputStr = input()
-while True:
-    print("answer",binarySearch(inputStr,dataDataList))
-    inputStr = input()
-    if inputStr =="":
-        break
+64 - 4y + 8y = 120
+x + y = 16
+4x + 8y = 120
+
+'''
+b = 0
+a = 16 -b
