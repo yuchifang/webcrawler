@@ -25,14 +25,21 @@ dataName = sorted(input().split())
 dataCost = [int(item) for item in input().split()]
 dataDataList = list(zip(dataName,dataCost))
 
-
+count = 0
 def binarySearch(target,dataDataList):
+    global count
+    count +=1
+    if count ==20:
+        return
+    print(dataDataList)
     midIndex = len(dataDataList)//2
+
     if dataDataList[midIndex][0] == target:
         return dataDataList[midIndex][1]
     if dataDataList[midIndex][0] > target:
         return binarySearch(target,dataDataList[0:midIndex:])
     if dataDataList[midIndex][0] < target:
         return binarySearch(target,dataDataList[midIndex::])
-
-print(binarySearch("SomeName",dataDataList))
+    if len(dataDataList) == 1:
+        return
+print(binarySearch("Ana",dataDataList))
