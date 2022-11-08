@@ -146,7 +146,10 @@ print(max(total_Count_List))
 -1 -2 -3 = 1
 -1 -1 -3 = 1
 '''
+# https://meet.google.com/vfk-vobr-nqm
 
+# 1 2 3 4 5 6 7 8
+# 8
 input_Number_List = [int(item) for item in input().split()]
 compareList = input_Number_List[1::]
 diff = 0
@@ -157,11 +160,10 @@ if len(input_Number_List) == 1:
     total_List_count = [1]
 
 for item1, item2 in zip(input_Number_List, compareList):
-
     # 初始值
     if count == 0:
         diff = item1 - item2
-        if diff < 0:
+        if diff == -1:
             count = 2
     else:
         if item1 - item2 == diff:
@@ -169,10 +171,10 @@ for item1, item2 in zip(input_Number_List, compareList):
         else:
             total_List_count.append(count)
             diff = item1 - item2
-            if diff < 0:
+            if diff == -1:
                 count = 2
 
-    if diff >= 0:
+    if diff != -1:
         count = 1
     total_List_count.append(count)
 
