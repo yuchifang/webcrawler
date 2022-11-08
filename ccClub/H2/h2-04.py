@@ -16,13 +16,14 @@ c c c l u b
 6 4 3 2 1 7
 c c c l u b
 
-7 3 2 1 4 6
+7 6 2 1 4 3
 '''
 
 input1Number = [int(item) for item in input().split()]
 input2Level = [item for item in input().split()]
 dic = {}
 totalLength = len(input2Level)
+
 
 for index, item in enumerate(input1Number):
     level = input2Level[index]
@@ -31,19 +32,19 @@ for index, item in enumerate(input1Number):
     else:
         dic[level] = [int(item)]
 
+all_level = sorted(list(set({*dic})))
+
 returnArr = []
-sortedDic = sorted(dic)
 outSideCount = 0
 while outSideCount < totalLength:
-    def appendFun(count):
-        newCount = count
-        for item in sortedDic:
+    def appendFun():
+        global outSideCount
+        for item in all_level:
             if item in dic and len(dic[item]) > 0:
-                dic[item] = sorted(dic[item])
+                dic[item] = dic[item]
                 returnArr.append(str(dic[item].pop(0)))
-                newCount += 1
-        return newCount
+                outSideCount+= 1
 
     if outSideCount < totalLength:
-        outSideCount = appendFun(outSideCount)
+        appendFun()
 print(" ".join(returnArr))
