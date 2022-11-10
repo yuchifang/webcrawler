@@ -8,37 +8,54 @@ mainClassDict
 最後一行則是學弟妹好奇的課。
 
 最後一行 有可能有多個 **
+
+a b c
+b e
+c d
+f
+a
+
+d e b c a
+
+
+DataScience calculas stats
+calculas counting
+stats
+counting
+DataScience
+
+counting calculas stats DataScience
 '''
 mainClassDict = {}
 for item in range(4):
     data = input().split()
     if len(data) > 1:
-        mainClassDict[data[0]] = sorted(data[1::])
+        mainClassDict[data[0]] = data[1::]
 wantItem = input()
 
 print(mainClassDict)
 
 count = 0
 
-returnList = ["*", wantItem]
+returnList = [ wantItem]
 returnListLength = len(returnList)
-
+phaseList = []
 
 def getAllClass(inputItem):
-    global returnList, count
-
+    global returnList, count, phaseList
+    phaseList = []
     if count > 20:
         return
     if inputItem in mainClassDict and len(mainClassDict) > 1:
         for item in mainClassDict[inputItem]:
-            returnList.insert(0, item)
-        returnList.insert(0, "*")
+            phaseList.append(item)
+        returnList = phaseList + returnList
         for item in mainClassDict[inputItem]:
             getAllClass(item)
 
 
 getAllClass(wantItem)
-print(returnList)
+print(" ".join(returnList))
 '''
 a b c
 b e
