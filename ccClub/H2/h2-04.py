@@ -1,4 +1,6 @@
 '''
+
+
 4 3 2 1
 b b a c
 
@@ -17,34 +19,56 @@ c c c l u b
 c c c l u b
 
 7 6 2 1 4 3
+
+1 2 3 4 5
+a b c d z
+
+5 4 3 2 6 7 8 9
+z d c b a a b c
+
+6 2 3 4 5 7 8 9
+
+5 4 3 2 7 8 9 10 11 11
+a b c d 
+
+7 2 3 4 10 5 11 8 9 11
 '''
 
-input1Number = [int(item) for item in input().split()]
-input2Level = [item for item in input().split()]
-dic = {}
-totalLength = len(input2Level)
+Number_List = [int(item) for item in input().split()]
+Level_List = [item for item in input().split()]
+level_dic = {}
+totalLength = len(Level_List)
 
 
-for index, item in enumerate(input1Number):
-    level = input2Level[index]
-    if level in dic:
-        dic[level].append(int(item))
+for index, item in enumerate(Number_List):
+    level = Level_List[index]
+
+    if level in level_dic:
+        level_dic[level].append(int(item))
     else:
-        dic[level] = [int(item)]
+        level_dic[level] = [int(item)]
 
-all_level = sorted(list(set({*dic})))
+all_level_sorted = sorted(list(set({*level_dic})))  # 已排列好的 key
 
 returnArr = []
 outSideCount = 0
 while outSideCount < totalLength:
     def appendFun():
         global outSideCount
-        for item in all_level:
-            if item in dic and len(dic[item]) > 0:
-                dic[item] = dic[item]
-                returnArr.append(str(dic[item].pop(0)))
-                outSideCount+= 1
+        global all_level_sorted
 
-    if outSideCount < totalLength:
-        appendFun()
+        for item in all_level_sorted:
+            if item in level_dic and len(level_dic[item]) > 0:
+                returnArr.append(str(level_dic[item].pop(0)))
+                outSideCount += 1
+
+    appendFun()
+    all_level_sorted = all_level_sorted[::-1]
 print(" ".join(returnArr))
+
+'''
+5 4 3 2 6 7 8 9
+z d c b a a b c
+
+6 2 3 4 5 9 8 7
+'''
