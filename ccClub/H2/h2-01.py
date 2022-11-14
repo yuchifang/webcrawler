@@ -37,7 +37,7 @@ print(mainClassDict)
 
 count = 0
 
-returnList = [ wantItem]
+returnList = [wantItem]
 returnListLength = len(returnList)
 # phaseList = []
 
@@ -49,23 +49,39 @@ counting
 DataScience
 
 '''
-def getAllClass(inputItem,phaseList):
+
+'''
+a b c
+b e
+c d
+f
+a
+
+d e b c a
+'''
+
+
+def getAllClass(inputItem, phaseList):
     global returnList, count
-    
+
     if count > 20:
         return
-    if inputItem in mainClassDict and len(mainClassDict[inputItem]) > 1:
+    # if inputItem in mainClassDict and len(mainClassDict[inputItem]) > 1:
+    if inputItem in mainClassDict:
         for item in mainClassDict[inputItem]:
+            print("item", item)
             phaseList.append(item)
+        print("phaseList", phaseList)
+        returnList = phaseList + returnList
+        print("returnList", returnList)
+        phaseList = []
+        for item in mainClassDict[inputItem]:
+            getAllClass(item, phaseList)
 
-    returnList = phaseList + returnList
-    phaseList = []
-    for item in mainClassDict[inputItem]:
-        getAllClass(item,phaseList)
 
-
-getAllClass(wantItem,[])
+getAllClass(wantItem, [])
 print(" ".join(returnList))
+
 '''
 a b c
 b e
@@ -76,52 +92,3 @@ d e b c a
 '''
 
 # 不太知道同層 怎麼處理子層 順序的比較
-
-'''
-DataScience calculas stats
-calculas counting
-stats
-counting
-DataScience
-
-
-
-'''
-'''
-     /*
-            a b c
-            b e
-            c d
-            f
-            a
-
-            d e b c a
-        */
-
-        /*            
-            DataScience calculas stats
-            calculas counting
-            // stats
-            // counting
-            DataScience
-
-            counting calculas stats DataScience
-        */
-           
-        // 有層級關係 
-        // 第1層不一定是最多層的
-
-        // 先對 所有 list 大於 2 存入 dic
-        // 存輸入 input1
-
-        // 取 input1 dic 的值 
-        // list
-            // 將 [0] 設為 1層 其餘設為 2層 
-            // append list[0]
-            // 把後面的值 做sorted 在 append 
-
-            // 看看後面的值有沒有 存在在 dict 
-                // 沒有 =>
-                // 有 =>
-                    // 
-'''
