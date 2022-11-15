@@ -60,26 +60,28 @@ a
 d e b c a
 '''
 
-
-def getAllClass(inputItem, phaseList):
-    global returnList, count
+phaseList = []
+def getAllClass(inputItem):
+    global returnList, count, phaseList
 
     if count > 20:
         return
     # if inputItem in mainClassDict and len(mainClassDict[inputItem]) > 1:
     if inputItem in mainClassDict:
+        returnList = phaseList + returnList
+        phaseList = []
         for item in mainClassDict[inputItem]:
             print("item", item)
             phaseList.append(item)
-        print("phaseList", phaseList)
-        returnList = phaseList + returnList
-        print("returnList", returnList)
-        phaseList = []
+
         for item in mainClassDict[inputItem]:
             getAllClass(item, phaseList)
 
+        
 
-getAllClass(wantItem, [])
+
+
+getAllClass(wantItem)
 print(" ".join(returnList))
 
 '''
