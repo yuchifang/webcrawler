@@ -1,6 +1,3 @@
 import pandas as pd
-import os
-current_directory = os.getcwd()
-print(current_directory)
-readData = pd.read_csv(current_directory+'/test.csv')
-print(readData)
+data = pd.DataFrame({"item":[10,11,12,13],"item2":[5,6,7,8]})
+print(data.columns)
