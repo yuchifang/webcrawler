@@ -42,7 +42,9 @@ driver.add_cookie({
 
 driver.refresh()
 
+
 # 關閉 lightbox
+
 try:
     # 找到 lightbox 並點擊關閉按鈕
     # 使用 XPATH
@@ -58,6 +60,9 @@ try:
     ''')
 except TimeoutException or NoSuchElementException:
     login(driver)
+
+
+
 
 # 點擊 searchButton
 searchButton = driver.find_element(
@@ -108,6 +113,7 @@ print()
 # sleep(0.5)
 # actions.release(foodPostItem)
 # actions.perform()
+
 '''
 https://i.instagram.com/api/v1/media/2923973691486745905/comments/?can_support_threading=true&permalink_enabled=false
 '''
