@@ -10,11 +10,7 @@ from login import login
 from selenium.webdriver.common.by import By
 '''
 find
-龍山寺 江子翠 新埔 板橋 亞東 海山 土城 
-
-板新 中原 橋和 中和
-
-新埔民生 幸福 頭前庄 新莊 先嗇宮
+龍山寺 江子翠 新埔 板橋 亞東 海山 土城 板新 中原 橋和 中和 新埔民生 幸福 頭前庄 新莊 先嗇宮
 
 2022 12 11  2023
 check 最新貼文
@@ -22,7 +18,7 @@ check 最新貼文
 end 2021 stop
 '''
 
-matches = ["龍山寺", "江子翠", "milk"]
+matches = ["龍山寺", "江子翠", "新埔","板橋","亞東","海山","土城","板新" ,"中原" ,"橋和" ,"中和" ,"新埔民生" ,"幸福" ,"頭前庄" ,"新莊" ,"先嗇宮"]
 
 currentFolderPath = pathlib.Path(__file__).parent.resolve()
 MY_OS = platform.system()
@@ -89,7 +85,9 @@ seeMoreItem.click()
 clickedSeeMorePostTextElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x1iorvi4 x1pi30zi x1l90r2v x1swvt13']")
 if clickedSeeMorePostTextElement.text.find("2021") != -1 or clickedSeeMorePostTextElement.text.find("求租") != -1 :
     pass
-
+# todo 2021 要另外寫
+if any(x in clickedSeeMorePostTextElement.text for x in matches):
+    pass
 # print(postElement.text)
 # postItem=BeautifulSoup(postElement)
 # print(postItem.prettify())
@@ -101,9 +99,7 @@ if clickedSeeMorePostTextElement.text.find("2021") != -1 or clickedSeeMorePostTe
         delete
     find 2022 12 11  2023
         and 
-            龍山寺 江子翠 新埔 板橋 亞東 海山 土城 
-            板新 中原 橋和 中和
-            新埔民生 幸福 頭前庄 新莊 先嗇宮
+            recheck 捷運站
         add save
         delet
 
