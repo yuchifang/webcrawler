@@ -75,7 +75,6 @@ login(driver)
 
 # x1iorvi4 x1pi30zi x1l90r2v x1swvt13
 
-# todo
 clickBlockElement = waitUntil(driver,10,By.XPATH,'//*[@id="facebook"]/body/div[4]/div[1]/div/div[2]')
 clickBlockElement.click()
 postBlockElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x9f619 x1n2onr6 x1ja2u2z x2lah0s x1qjc9v5 x78zum5 x1q0g3np xl56j7k x8hhl5t x9otpla x1n0m28w x1wsgfga xp7jhwk']") 
@@ -83,6 +82,7 @@ postTextElement = waitUntil(postBlockElement,10,By.CSS_SELECTOR, "div[class='x1i
 seeMoreItem = waitUntil(postTextElement,10,By.CSS_SELECTOR,"div[class='x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f']")
 seeMoreItem.click()
 clickedSeeMorePostTextElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x1iorvi4 x1pi30zi x1l90r2v x1swvt13']")
+
 if clickedSeeMorePostTextElement.text.find("2021") != -1 or clickedSeeMorePostTextElement.text.find("求租") != -1 :
     pass
 # todo 2021 要另外寫
