@@ -79,13 +79,14 @@ login(driver)
 # x1iorvi4 x1pi30zi x1l90r2v x1swvt13
 
 # todo
-postTextElement = waitUntil(driver,15,By.CSS_SELECTOR, "div[class='x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r x126k92a']")
-print(postTextElement.text)
-seeMoreItem = waitUntil(postTextElement,5,By.CLASS_NAME,"x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f")
-print(seeMoreItem.text)
-seeMoreItem.click()
-clickedSeeMorePostTextElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r x126k92a']")
-print(clickedSeeMorePostTextElement.text)
+# click //*[@id="facebook"]/body/div[4]/div[1]/div/div[2]
+# postTextElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r x126k92a']")
+# print(postTextElement.text)
+# seeMoreItem = waitUntil(postTextElement,10,By.CLASS_NAME,"x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz xt0b8zv xzsf02u x1s688f")
+# print(seeMoreItem.text)
+# seeMoreItem.click()
+# clickedSeeMorePostTextElement = waitUntil(driver,10,By.CSS_SELECTOR, "div[class='x11i5rnm xat24cr x1mh8g0r x1vvkbs xdj266r x126k92a']")
+# print(clickedSeeMorePostTextElement.text)
 
 # print(postElement.text)
 # postItem=BeautifulSoup(postElement)
