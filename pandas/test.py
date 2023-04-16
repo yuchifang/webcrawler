@@ -1,10 +1,11 @@
 import pandas as pd
-groups = ["Modern Web", "DevOps", "Cloud", "Big Data", "Security", "自我挑戰組"]
-ironmen = [59, 9, 19, 14, 6, 77]
+import numpy as np
+import matplotlib.pyplot as plt
+# 載入繪製相關圖的模組 import the Autocorrelation Plot module
+from pandas.plotting import autocorrelation_plot
 
-ironmen_dict = {
-    "groups": groups,
-    "ironmen": ironmen
-}
-ironmen_df = pd.DataFrame(ironmen_dict)
-print(ironmen_df)
+spacing = np.linspace(-9 * np.pi, 9 * np.pi, num=1000)
+data = pd.Series(0.7 * np.random.rand(1000) + 0.3 * np.sin(spacing))
+print(spacing)
+autocorrelation_plot(spacing)
+plt.show()
